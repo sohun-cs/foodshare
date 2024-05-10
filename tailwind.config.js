@@ -6,7 +6,12 @@ export default {
     'node_modules/preline/dist/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "lato": '"Lato", sans-serif',
+        "merriweather": '"Merriweather", serif'
+      }
+    },
   },
   plugins: [require('preline/plugin'),
 ],
