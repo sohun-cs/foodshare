@@ -117,8 +117,7 @@ export const Navbar = () => {
                                     <nav>
                                         <ul className="space-y-4">
 
-
-                                            <li className="font-semibold">
+                                            {/* <li className="font-semibold">
                                                 <a href="/" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
                                                     Home
                                                 </a>
@@ -142,6 +141,49 @@ export const Navbar = () => {
                                                 <a href="/my-food-request" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" >
                                                     My Food Request
                                                 </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="/login" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-gradient-to-r from-green-600 to-lime-600 text-white">
+                                                    Login
+                                                </a>
+                                            </li> */}
+
+
+                                            <li className="font-semibold">
+                                                <Link to="/"
+                                                    onClick={() => setIsMenuOpen(false)}
+                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                                                    Home
+                                                </Link>
+                                            </li>
+                                            <li className="font-semibold">
+                                                <Link to="/available-foods"
+                                                    onClick={() => setIsMenuOpen(false)}
+                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                                                    Available Foods
+                                                </Link>
+                                            </li>
+                                            <li className="font-semibold">
+                                                <Link to="/add-food"
+                                                    onClick={() => setIsMenuOpen(false)}
+                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                                                    Add Food
+                                                </Link>
+                                            </li>
+                                            <li className="font-semibold">
+                                                <Link to="/manage-my-foods"
+                                                    onClick={() => setIsMenuOpen(false)}
+                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                                                    Manage My Foods
+                                                </Link>
+                                            </li>
+                                            <li className="font-semibold">
+                                                <Link to="/my-food-request"
+                                                    onClick={() => setIsMenuOpen(false)}
+                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" >
+                                                    My Food Request
+                                                </Link>
                                             </li>
 
 
