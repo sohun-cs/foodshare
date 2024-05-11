@@ -35,7 +35,7 @@ export const Navbar = () => {
     </>
 
     return (
-        <div className=" bg-gradient-to-r from-sky-100 to-cyan-50 text-black">
+        <div className="bg-gradient-to-r from-red-50 to-rose-50 text-black ">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <a
@@ -117,39 +117,6 @@ export const Navbar = () => {
                                     <nav>
                                         <ul className="space-y-4">
 
-                                            {/* <li className="font-semibold">
-                                                <a href="/" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                                                    Home
-                                                </a>
-                                            </li>
-                                            <li className="font-semibold">
-                                                <a href="/available-foods" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                                                    Available Foods
-                                                </a>
-                                            </li>
-                                            <li className="font-semibold">
-                                                <a href="/add-food" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                                                    Add Food
-                                                </a>
-                                            </li>
-                                            <li className="font-semibold">
-                                                <a href="/manage-my-foods" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                                                    Manage My Foods
-                                                </a>
-                                            </li>
-                                            <li className="font-semibold">
-                                                <a href="/my-food-request" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" >
-                                                    My Food Request
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="/login" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-gradient-to-r from-green-600 to-lime-600 text-white">
-                                                    Login
-                                                </a>
-                                            </li> */}
-
-
                                             <li className="font-semibold">
                                                 <Link to="/"
                                                     onClick={() => setIsMenuOpen(false)}
@@ -185,15 +152,12 @@ export const Navbar = () => {
                                                     My Food Request
                                                 </Link>
                                             </li>
-
-
-
-
                                             <li>
                                                 <a href="/" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-gradient-to-r from-green-600 to-lime-600 text-white">
                                                     Login
                                                 </a>
                                             </li>
+
                                         </ul>
                                     </nav>
                                 </div>
