@@ -14,7 +14,7 @@ const Banner = () => {
 
                         <div className="space-y-4 lg:space-y-8 mb-12 bg-rose-200 px-4 py-10 md:p-10 bg-opacity-30">
 
-                            <h4 className="font-extrabold">FoodSphere</h4>
+                            <h4 className="font-extrabold text-rose-50">FoodSphere</h4>
                             <h2 className="text-3xl font-extrabold">Connecting communities through food sharing.</h2>
                             <p className="font-semibold text-lg">At FoodSphere, surplus becomes sustenance. Join our mission to reduce waste and nourish communities.</p>
 
