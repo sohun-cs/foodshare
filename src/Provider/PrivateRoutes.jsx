@@ -10,7 +10,7 @@ const PrivateRoutes = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
-    if (loading) return <Spinner className="h-16 w-16 text-gray-900/50" />;
+    if (loading) return <div className="min-h-[calc(100vh-80px-181.09px)] flex items-center justify-center"><Spinner className="h-16 w-16 text-gray-900/50" /></div>
 
     if (user) {
         return children;

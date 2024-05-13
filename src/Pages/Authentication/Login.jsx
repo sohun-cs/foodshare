@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link, } from "react-router-dom";
+import { Link, useLocation, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -12,6 +12,9 @@ const Login = () => {
     }, []);
 
     const { login } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const [showPassword, setShowPassword] = useState(true);
 
@@ -29,6 +32,7 @@ const Login = () => {
         login(email, password)
             .then(() => {
                 toast.success('User Login Successfully')
+                navigate(location?.state ? location.state : '/')
             })
             .catch(() => {
                 toast.error("User not found")
@@ -89,6 +93,7 @@ const Login = () => {
                                         <input
                                             className="w-full bg-indigo-700 font-semibold text-indigo-200 py-3 mt-3 border-2 border-indigo-700 hover:bg-transparent duration-500 hover:border-2 hover:text-indigo-700 hover:border-indigo-700 cursor-pointer"
                                             type="submit"
+                                            
                                             value='Login' />
                                     </div>
 

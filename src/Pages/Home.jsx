@@ -2,6 +2,8 @@ import Banner from "../Components/Banner";
 import FeaturedFoods from "../Components/FeaturedFoods/FeaturedFoods";
 
 const Home = () => {
+
+
     return (
         <div>
             <Banner></Banner>

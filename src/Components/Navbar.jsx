@@ -11,7 +11,7 @@ export const Navbar = () => {
     const handleLogout = () => {
         logout()
     }
-    
+
 
     const link = <>
 
@@ -54,8 +54,8 @@ export const Navbar = () => {
 
     return (
         <div className="bg-gradient-to-r from-red-50 to-rose-50 text-black ">
-            <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                <div className="relative flex items-center justify-between">
+            <div className="px-4 py-5 h-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div className="relative h-10 flex items-center justify-between">
                     <a
                         href="/" className="inline-flex items-center">
                         <img className="w-8" src="https://i.imgur.com/p5e9hia.jpg" alt="" />
@@ -84,8 +84,8 @@ export const Navbar = () => {
                                                 <p className="text-xs text-rose-600 dark:text-gray-400">{user.email}</p>
                                             </div>
 
-                                            <Link to='/' onClick={handleLogout} className="mx-2 bg-gradient-to-r from-green-600 to-lime-600 px-4 py-2 text-white font-bold">
-                                                <button>Logout</button>
+                                            <Link to='/' onClick={handleLogout} className="mx-2 bg-gradient-to-r from-green-600 to-lime-600 px-8 py-2 text-white font-bold">
+                                            <button>Logout</button>
                                             </Link>
 
                                         </div>
@@ -94,11 +94,14 @@ export const Navbar = () => {
                                     </>
 
                                     :
-                                    <Link
-                                        to="/login"
-                                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white bg-gradient-to-r from-green-600 to-lime-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" >
-                                        Login
-                                    </Link>
+                                    <>
+                                        <Link
+                                            to="/login"
+                                            className="mx-2 bg-gradient-to-r from-green-600 to-lime-600 px-6 py-2 text-white font-bold" >
+                                            <button>Login</button>
+
+                                        </Link>
+                                    </>
 
                             }
 

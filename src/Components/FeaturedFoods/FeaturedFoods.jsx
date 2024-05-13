@@ -1,9 +1,10 @@
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import PrivateRoutes from "../../Provider/PrivateRoutes";
+
 
 
 const FeaturedFoods = () => {
+
     return (
         <div>
 
@@ -58,11 +59,11 @@ const FeaturedFoods = () => {
                                             <p className="text-xs">Dhaka, Bangladesh</p>
                                         </div>
                                         <div>
-                                            <PrivateRoutes>
-                                                <Link to='/' className="text-rose-500 font-semibold">
-                                                    <button>View Details</button>
-                                                </Link>
-                                            </PrivateRoutes>
+
+                                            <Link to='/details' className="text-rose-500 font-semibold">
+                                                <button>View Details</button>
+                                            </Link>
+
                                         </div>
                                     </div>
                                 </div>
@@ -114,11 +115,11 @@ const FeaturedFoods = () => {
                                             <p className="text-xs">Dhaka, Bangladesh</p>
                                         </div>
                                         <div>
-                                            <PrivateRoutes>
-                                                <Link to='/' className="text-rose-500 font-semibold">
-                                                    <button>View Details</button>
-                                                </Link>
-                                            </PrivateRoutes>
+
+                                            <Link to='/details' className="text-rose-500 font-semibold">
+                                                <button>View Details</button>
+                                            </Link>
+
                                         </div>
                                     </div>
                                 </div>
@@ -170,11 +171,11 @@ const FeaturedFoods = () => {
                                             <p className="text-xs">Dhaka, Bangladesh</p>
                                         </div>
                                         <div>
-                                            <PrivateRoutes>
-                                                <Link to='/' className="text-rose-500 font-semibold">
-                                                    <button>View Details</button>
-                                                </Link>
-                                            </PrivateRoutes>
+
+                                            <Link to='/details' className="text-rose-500 font-semibold">
+                                                <button>View Details</button>
+                                            </Link>
+
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +227,7 @@ const FeaturedFoods = () => {
                                             <p className="text-xs">Dhaka, Bangladesh</p>
                                         </div>
                                         <div>
-                                            <Link to='/' className="text-rose-500 font-semibold">
+                                            <Link to='/details' className="text-rose-500 font-semibold">
                                                 <button>View Details</button>
                                             </Link>
                                         </div>
@@ -280,11 +281,11 @@ const FeaturedFoods = () => {
                                             <p className="text-xs">Dhaka, Bangladesh</p>
                                         </div>
                                         <div>
-                                            <PrivateRoutes>
-                                                <Link to='/' className="text-rose-500 font-semibold">
-                                                    <button>View Details</button>
-                                                </Link>
-                                            </PrivateRoutes>
+
+                                            <Link to='/details' className="text-rose-500 font-semibold">
+                                                <button>View Details</button>
+                                            </Link>
+
                                         </div>
                                     </div>
                                 </div>
@@ -336,11 +337,11 @@ const FeaturedFoods = () => {
                                             <p className="text-xs">Dhaka, Bangladesh</p>
                                         </div>
                                         <div>
-                                            <PrivateRoutes>
-                                                <Link to='/' className="text-rose-500 font-semibold">
-                                                    <button>View Details</button>
-                                                </Link>
-                                            </PrivateRoutes>
+
+                                            <Link to='/details' className="text-rose-500 font-semibold">
+                                                <button>View Details</button>
+                                            </Link>
+
                                         </div>
                                     </div>
                                 </div>
@@ -386,7 +387,7 @@ const FeaturedFoods = () => {
                 <p>Dhaka, Bangladesh</p>
             </div>
             <div>
-                <Link to='/' className="text-rose-500 font-semibold">
+                <Link to='/details' className="text-rose-500 font-semibold">
                     <button>View Details</button>
                 </Link>
             </div>
