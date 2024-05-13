@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export const Navbar = () => {
+
+    const { user, logout } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
+    const handleLogout = () => {
+        logout()
+    }
+    
 
     const link = <>
 
@@ -17,19 +26,28 @@ export const Navbar = () => {
             </NavLink>
         </li>
         <li className="font-semibold">
-            <NavLink to="/add-food" className={({ isActive }) => isActive ? 'transition-colors duration-200 text-gray-950 border-b border-gray-950 pb-1' : 'transition-colors duration-200 text-gray-700'}>
-                Add Food
-            </NavLink>
+            {
+                user &&
+                <NavLink to="/add-food" className={({ isActive }) => isActive ? 'transition-colors duration-200 text-gray-950 border-b border-gray-950 pb-1' : 'transition-colors duration-200 text-gray-700'}>
+                    Add Food
+                </NavLink>
+            }
         </li>
         <li className="font-semibold">
-            <NavLink to="/manage-my-foods" className={({ isActive }) => isActive ? 'transition-colors duration-200 text-gray-950 border-b border-gray-950 pb-1' : 'transition-colors duration-200 text-gray-700'} >
-                Manage My Foods
-            </NavLink>
+            {
+                user &&
+                <NavLink to="/manage-my-foods" className={({ isActive }) => isActive ? 'transition-colors duration-200 text-gray-950 border-b border-gray-950 pb-1' : 'transition-colors duration-200 text-gray-700'} >
+                    Manage My Foods
+                </NavLink>
+            }
         </li>
         <li className="font-semibold">
-            <NavLink to="/my-food-request" className={({ isActive }) => isActive ? 'transition-colors duration-200 text-gray-950 border-b border-gray-950 pb-1' : 'transition-colors duration-200 text-gray-700'} >
-                My Food Request
-            </NavLink>
+            {
+                user &&
+                <NavLink to="/my-food-request" className={({ isActive }) => isActive ? 'transition-colors duration-200 text-gray-950 border-b border-gray-950 pb-1' : 'transition-colors duration-200 text-gray-700'} >
+                    My Food Request
+                </NavLink>
+            }
         </li>
 
     </>
@@ -49,13 +67,42 @@ export const Navbar = () => {
                         {
                             link
                         }
+
                         <li>
-                            <Link
-                                to="/login"
-                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white 
-                                bg-gradient-to-r from-green-600 to-lime-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" >
-                                Login
-                            </Link>
+                            {
+
+                                user ?
+                                    <>
+
+                                        <div className="flex items-center gap-x-2">
+                                            <img className="w-10 h-10 rounded-full ring-2 ring-green-300 dark:ring-gray-500"
+                                                src={user?.photoURL} alt="" />
+
+                                            <div className="border-r-2 pr-3 border-rose-500">
+                                                <h1 className="text-sm font-semibold text-green-600 capitalize dark:text-white">{user.displayName}</h1>
+
+                                                <p className="text-xs text-rose-600 dark:text-gray-400">{user.email}</p>
+                                            </div>
+
+                                            <Link to='/' onClick={handleLogout} className="mx-2 bg-gradient-to-r from-green-600 to-lime-600 px-4 py-2 text-white font-bold">
+                                                <button>Logout</button>
+                                            </Link>
+
+                                        </div>
+
+
+                                    </>
+
+                                    :
+                                    <Link
+                                        to="/login"
+                                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white bg-gradient-to-r from-green-600 to-lime-600 transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" >
+                                        Login
+                                    </Link>
+
+                            }
+
+
                         </li>
                     </ul>
                     <div className="lg:hidden">
@@ -153,9 +200,17 @@ export const Navbar = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <a href="/" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-gradient-to-r from-green-600 to-lime-600 text-white">
-                                                    Login
-                                                </a>
+                                                {
+                                                    user ?
+                                                        <Link to="/" onClick={logout} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-gradient-to-r from-green-600 to-lime-600 text-white">
+                                                            Logout
+                                                        </Link>
+                                                        :
+                                                        <Link to="/login" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-gradient-to-r from-green-600 to-lime-600 text-white">
+                                                            Login
+                                                        </Link>
+
+                                                }
                                             </li>
 
                                         </ul>

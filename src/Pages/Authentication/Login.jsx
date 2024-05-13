@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
 
@@ -9,14 +11,38 @@ const Login = () => {
         document.title = "Login - FoodSphere"
     }, []);
 
+    const { login } = useContext(AuthContext);
+
     const [showPassword, setShowPassword] = useState(true);
+
+
+    const handleLogin = e => {
+        e.preventDefault();
+
+        const form = new FormData(e.currentTarget);
+
+        const email = form.get('email');
+        const password = form.get('password');
+
+        e.target.reset();
+
+        login(email, password)
+            .then(() => {
+                toast.success('User Login Successfully')
+            })
+            .catch(() => {
+                toast.error("User not found")
+            })
+
+    }
+
 
     return (
         <div className={` bg-no-repeat bg-cover `}>
             <div className="max-w-[1536px] mx-auto min-h-[calc(100vh-112px)] flex justify-center items-center">
                 <div className="font-rubik bg-indigo-100 bg-opacity-40 p-10 lg:p-20 ">
 
-                    <form onSubmit=''>
+                    <form onSubmit={handleLogin}>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
