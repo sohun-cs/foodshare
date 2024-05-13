@@ -1,7 +1,9 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
 
@@ -9,31 +11,69 @@ const Register = () => {
         document.title = 'Registration - FoodSphere'
     }, []);
 
-
-   
+    const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(true);
-   
 
-    // if (password.length < 6) {
-    //     notify("Password at least 6 characters");
-    //     return;
-    // }
-    // else if (!/[A-Z]/.test(password)) {
-    //     notify("Password must have an uppercase characters");
-    //     return;
-    // }
-    // else if (!/[a-z]/.test(password)) {
-    //     notify("Password must have an lower characters");
-    //     return;
-    // }
+    const handleSignUp = e => {
+
+        e.preventDefault();
+
+        const form = new FormData(e.currentTarget);
+
+        const name = form.get('name');
+        const email = form.get('email');
+        const photo = form.get('photo');
+        const password = form.get('password');
+
+        e.target.reset();
+
+        const user = { name, email, photo, password };
+        console.log(user);
+
+        if (password.length < 6) {
+            toast.error("Password at least 6 characters.");
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            toast.error("Password must have an uppercase characters.");
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            toast.error("Password must have an lower characters.");
+            return;
+        }
+        else if (!/[0-9]/.test(password)) {
+            toast.error("Password must have at least a number.");
+            return;
+        }
+
+        createUser(email, password)
+            .then(res => {
+                const user = res.user;
+
+                updateUserProfile(name, photo)
+                    .then(() => {
+                        setUser({ ...user, photoURL: photo, displayName: name })
+                    })
+
+                toast.success('User Create Successfully')
+
+            })
+            .catch(error => {
+                const err = error.message;
+                toast.error(err);
+            })
+
+    }
+
 
     return (
         <div className={` bg-no-repeat bg-cover `}>
             <div className="max-w-[1536px] mx-auto min-h-[calc(100vh-112px)] flex justify-center items-center">
                 <div className="font-rubik bg-indigo-100 bg-opacity-40 p-10 lg:p-20">
 
-                    <form onSubmit=''>
+                    <form onSubmit={handleSignUp}>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 

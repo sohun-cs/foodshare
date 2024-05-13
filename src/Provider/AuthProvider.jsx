@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import auth from "../Firebase/firebease.config";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 export const AuthContext = createContext(null);
 
@@ -35,6 +35,13 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     };
 
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        })
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
@@ -46,7 +53,7 @@ const AuthProvider = ({ children }) => {
     }, []);
 
 
-    const authInfo = { user, loading, createUser, googleSignIn, githubSignIn, login, logout };
+    const authInfo = { user, setUser, loading, createUser, googleSignIn, githubSignIn, login, logout, updateUserProfile };
 
     return (
         <AuthContext.Provider value={authInfo}>
