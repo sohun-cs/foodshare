@@ -14,7 +14,7 @@ const EditFood = () => {
 
     const editFood = useLoaderData();
 
-    const {_id, food_image, food_name, quantity, location, expired_date, notes, status } = editFood;
+    const { _id, food_image, food_name, quantity, location, expired_date, notes, status } = editFood;
 
 
 
