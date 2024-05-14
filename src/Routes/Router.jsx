@@ -9,11 +9,13 @@ import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import ViewDetails from "../Components/FeaturedFoods/ViewDetails";
 import PrivateRoutes from "../Provider/PrivateRoutes";
+import ErrorPage from "../Error/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,
@@ -47,7 +49,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/details',
-                element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>
+                element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
             }
         ]
     }

@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 const AvailableFoodCard = ({allFood}) => {
 
-    const { food_image, food_name, quantity, location, expired_date, notes, donar_name } = allFood;
+    const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name } = allFood;
 
     return (
-        <div className="max-w-sm border border-rose-500">
+        <div className="max-w-sm border border-green-500">
             <div className="overflow-hidden h-60">
                 <img src={food_image}
                     className="hover:scale-110 duration-500" alt="" />
@@ -24,7 +24,7 @@ const AvailableFoodCard = ({allFood}) => {
                 </div>
 
             </div>
-            <div className="bg-slate-100">
+            <div className="bg-green-100">
                 <div className="px-4 py-2">
                     <div className="flex items-center gap-2">
                         <div>
@@ -44,8 +44,8 @@ const AvailableFoodCard = ({allFood}) => {
                         <p>{location}</p>
                     </div>
                     <div>
-                        <Link to='/details' className="text-rose-500 font-semibold">
-                            <button>View Details</button>
+                        <Link to={`/details/`} className="text-rose-500 font-semibold">
+                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-green-600 px-6 font-medium text-neutral-50"><span className="absolute h-0 w-0 rounded-full bg-blue-500 transition-all duration-300 group-hover:h-56 group-hover:w-36"></span><span className="relative">View Details</span></button>
                         </Link>
                     </div>
                 </div>

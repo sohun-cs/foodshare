@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const FoodCard = ({ loadedFood }) => {
 
-    const { food_image, food_name, quantity, location, expired_date, notes, donar_name } = loadedFood;
+    const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name } = loadedFood;
 
 
     return (
@@ -51,7 +51,7 @@ const FoodCard = ({ loadedFood }) => {
                             </div>
                             <div>
 
-                                <Link to='/details' className="text-blue-500 font-semibold">
+                                <Link to={`/details/${_id}`} className="text-blue-500 font-semibold">
                                     <button>View Details</button>
                                 </Link>
 
