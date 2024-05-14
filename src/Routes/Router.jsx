@@ -21,12 +21,12 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://food-sphere.vercel.app/foods')
             },
             {
                 path: '/available-foods',
                 element: <AvailableFood></AvailableFood>,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://food-sphere.vercel.app/foods')
             },
             {
                 path: '/add-food',
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             {
                 path: '/manage-my-foods',
                 element: <ManageMyFood></ManageMyFood>,
-                loader: () => fetch(`http://localhost:5000/foods`)
+                loader: () => fetch(`https://food-sphere.vercel.app/foods`)
             },
             {
                 path: '/my-food-request',
@@ -52,12 +52,12 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://food-sphere.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/edit-food/:id',
                 element: <PrivateRoutes><EditFood></EditFood></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({params}) => fetch(`https://food-sphere.vercel.app/foods/${params.id}`)
             }
         ]
     }

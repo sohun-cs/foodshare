@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const AvailableFoodCard = ({ allFood }) => {
 
-    const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name } = allFood;
+    const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_image } = allFood;
 
     return (
         <div className="max-w-sm border border-green-500">
@@ -28,7 +28,7 @@ const AvailableFoodCard = ({ allFood }) => {
                 <div className="px-4 py-2">
                     <div className="flex items-center gap-2">
                         <div>
-                            <img className="w-9  rounded-full" src="https://i.ibb.co/RYZpjHj/pic.jpg" alt="" />
+                            <img className="w-9  rounded-full" src={donar_image} alt="" />
                         </div>
                         <div className="">
                             <p className="font-semibold text-sm">{donar_name}</p>

@@ -42,7 +42,7 @@ const EditFood = () => {
 
 
 
-        fetch(`http://localhost:5000/foods/${_id}`, {
+        fetch(`https://food-sphere.vercel.app/foods/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

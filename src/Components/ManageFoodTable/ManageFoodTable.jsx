@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const ManageFoodTable = ({ managedFood, manageFoods, setManageFoods }) => {
 
-    const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_email, donar_image, status } = managedFood;
+    const { _id, food_name, donar_name, donar_email, donar_image, status } = managedFood;
 
     const handleDelete = _id => {
         Swal.fire({
@@ -25,7 +25,7 @@ const ManageFoodTable = ({ managedFood, manageFoods, setManageFoods }) => {
                         icon: "success"
                     }
                 );
-                fetch(`http://localhost:5000/foods/${_id}`, {
+                fetch(`https://food-sphere.vercel.app/foods/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
