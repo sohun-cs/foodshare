@@ -53,7 +53,7 @@ export const Navbar = () => {
     </>
 
     return (
-        <div className="bg-gradient-to-r from-red-50 to-rose-50 text-black ">
+        <div className="bg-gradient-to-r from-green-50 to-emerald-50 text-black ">
             <div className="px-4 py-5 h-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative h-10 flex items-center justify-between">
                     <a
