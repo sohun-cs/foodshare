@@ -10,9 +10,14 @@ const ViewDetails = () => {
         document.title = 'Details - Food Sphere'
     }, []);
 
+    // const loadedDetails = useLoaderData();
 
-    // const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_email, donar_image, status } = details;
+    
 
+
+    // const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_email, donar_image, status } = loadedDetails;
+
+    // console.log(_id);
 
 
 
@@ -25,8 +30,6 @@ const ViewDetails = () => {
 
             <div className="h-[800px] flex flex-col justify-center items-center">
                 <div className="max-w-2xl p-4 border-2 border-green-600">
-
-
 
                     <div className="w-full h-96 overflow-hidden">
                         <img className="w-full h-full hover:scale-110 duration-500 cursor-pointer" src="https://i.ibb.co/m4fhbVM/sandwich-2301387-640-min.jpg" alt="" />

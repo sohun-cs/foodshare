@@ -1,27 +1,25 @@
 import { useContext, useEffect } from "react";
-import { Link, ScrollRestoration } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
+import { Link, useLoaderData } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-import { Spinner } from "@material-tailwind/react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
-const AddFood = () => {
-
-    ScrollRestoration('/');
-
-
-
-    const { user, loading, setLoading } = useContext(AuthContext);
+const EditFood = () => {
 
     useEffect(() => {
-        document.title = 'Add Food Item - FoodSphere'
+        document.title = 'Edit Food - FoodSphere';
     }, []);
 
+    const { user } = useContext(AuthContext);
 
-    if (loading) return <div className="min-h-[calc(100vh-80px-181.09px)] flex items-center justify-center"><Spinner className="h-16 w-16 text-gray-900/50" /></div>
+    const editFood = useLoaderData();
+
+    const {_id, food_image, food_name, quantity, location, expired_date, notes, status } = editFood;
 
 
-    const handleAddItem = e => {
+
+
+    const handleEditItem = e => {
         e.preventDefault();
         const form = e.target;
 
@@ -39,11 +37,13 @@ const AddFood = () => {
 
         const foods = { food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_email, donar_image, status }
 
-        console.log(foods);
-        
+        console.log(editFood);
 
-        fetch('http://localhost:5000/foods', {
-            method: 'POST',
+
+
+
+        fetch(`http://localhost:5000/foods/${_id}`, {
+            method: "PUT",
             headers: {
                 "content-type": "application/json"
             },
@@ -52,17 +52,12 @@ const AddFood = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setLoading(false)
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Food has been successfully added",
-                        showConfirmButton: false,
-                        timer: 1500
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success"
                     });
-
-                    form.reset();
                 }
             })
 
@@ -101,7 +96,7 @@ const AddFood = () => {
 
                         <div className="max-w-[1096px] mx-auto p-3">
 
-                            <form onSubmit={handleAddItem}>
+                            <form onSubmit={handleEditItem}>
 
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
@@ -113,6 +108,7 @@ const AddFood = () => {
                                             focus:outline-green-600 mt-3"
                                             type="text"
                                             name="food_name"
+                                            defaultValue={food_name}
                                             placeholder="Enter food item name"
                                             required />
                                     </div>
@@ -123,6 +119,7 @@ const AddFood = () => {
                                             focus:outline-green-600 mt-3"
                                             type="text"
                                             name="food_image"
+                                            defaultValue={food_image}
                                             placeholder="Enter food image url"
                                             required />
                                     </div>
@@ -139,6 +136,7 @@ const AddFood = () => {
                                             focus:outline-green-600 mt-3"
                                             type="number"
                                             name="quantity"
+                                            defaultValue={quantity}
                                             placeholder="Enter food quantity"
                                             required />
                                     </div>
@@ -149,6 +147,7 @@ const AddFood = () => {
                                             focus:outline-green-600 mt-3"
                                             type="text"
                                             name="location"
+                                            defaultValue={location}
                                             placeholder="Enter pickup location"
                                             required />
                                     </div>
@@ -159,6 +158,7 @@ const AddFood = () => {
                                             focus:outline-green-600 mt-3"
                                             type="datetime-local"
                                             name="expired_date"
+                                            defaultValue={expired_date}
                                             placeholder="Enter expire date"
                                             required />
                                     </div>
@@ -176,6 +176,7 @@ const AddFood = () => {
                                             focus:outline-green-600 mt-3 resize-none"
                                             type="text"
                                             name="notes"
+                                            defaultValue={notes}
                                             placeholder="Write additional notes"
                                             rows="4"
                                             required >
@@ -186,8 +187,8 @@ const AddFood = () => {
 
 
                                 <div className="w-full text-center my-6">
-                                    <p className="text-2xl font-merriweather font-extralight">
-                                        -------------------------- &nbsp; Donor Information &nbsp; --------------------------
+                                    <p className="text-xs lg:text-2xl font-merriweather font-extralight">
+                                        --------- &nbsp; Donor Information &nbsp; ---------
                                     </p>
                                 </div>
 
@@ -236,7 +237,9 @@ const AddFood = () => {
 
                                         <select
                                             className="w-full px-4 py-3 focus:outline-green-600 mt-3"
+                                            defaultValue={status}
                                             name='status'>
+                                            <option value=''>-- Status --</option>
                                             <option value='Available'>Available</option>
                                             <option value='Unavailable'>Not Available</option>
                                         </select>
@@ -272,4 +275,4 @@ const AddFood = () => {
     );
 };
 
-export default AddFood;
+export default EditFood;

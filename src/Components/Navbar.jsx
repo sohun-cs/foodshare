@@ -63,7 +63,7 @@ export const Navbar = () => {
                             FoodSphere
                         </span>
                     </a>
-                    <ul className=" items-center hidden space-x-8 lg:flex ">
+                    <ul className="items-center hidden lg:text-sm xl:text-base lg:space-x-4 xl:space-x-6 lg:flex ">
                         {
                             link
                         }

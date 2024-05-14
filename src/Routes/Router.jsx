@@ -10,6 +10,7 @@ import Register from "../Pages/Authentication/Register";
 import ViewDetails from "../Components/FeaturedFoods/ViewDetails";
 import PrivateRoutes from "../Provider/PrivateRoutes";
 import ErrorPage from "../Error/ErrorPage";
+import EditFood from "../Components/ManageFoodTable/EditFood";
 
 const router = createBrowserRouter([
     {
@@ -18,14 +19,14 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                index: true,
+                path:'/',
                 element: <Home></Home>,
-                loader: () => fetch('https://food-sphere.vercel.app/foods')
+                loader: () => fetch('http://localhost:5000/foods')
             },
             {
                 path: '/available-foods',
                 element: <AvailableFood></AvailableFood>,
-                loader: () => fetch('https://food-sphere.vercel.app/foods')
+                loader: () => fetch('http://localhost:5000/foods')
             },
             {
                 path: '/add-food',
@@ -33,7 +34,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/manage-my-foods',
-                element: <ManageMyFood></ManageMyFood>
+                element: <ManageMyFood></ManageMyFood>,
+                loader: () => fetch(`http://localhost:5000/foods`)
             },
             {
                 path: '/my-food-request',
@@ -48,8 +50,14 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/details',
+                path: '/details/:id',
                 element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
+                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+            },
+            {
+                path: '/edit-food/:id',
+                element: <PrivateRoutes><EditFood></EditFood></PrivateRoutes>,
+                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
             }
         ]
     }

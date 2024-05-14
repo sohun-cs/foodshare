@@ -7,14 +7,14 @@ const Banner = () => {
 
             <div className="md:max-h-[792px] bg-[url('https://i.ibb.co/hcMFKsc/green-vegs-min.jpg')] bg-cover">
 
-                <div className="bg-green-950 bg-opacity-25 h-full flex flex-col items-center justify-center gap-16">
+                <div className="bg-green-950 bg-opacity-30 h-full flex flex-col items-center justify-center gap-16">
 
 
-                    <div className="tracking-wider max-w-xl md:text-center px-4 pt-24 text-green-50 md:text-green-600">
+                    <div className="tracking-wider max-w-xl md:text-center px-4 pt-24 text-green-50 md:text-green-400">
 
-                        <div className="space-y-4 lg:space-y-8 mb-12 bg-green-200 px-4 py-10 md:p-10 bg-opacity-30">
+                        <div className="space-y-4 lg:space-y-8 mb-12 bg-green-800 px-4 py-10 md:p-10 bg-opacity-30">
 
-                            <h4 className="font-extrabold text-rose-50">FoodSphere</h4>
+                            <h4 className="font-extrabold text-green-50">FoodSphere</h4>
                             <h2 className="text-3xl font-extrabold">Connecting communities through food sharing.</h2>
                             <p className="font-semibold text-lg">At FoodSphere, surplus becomes sustenance. Join our mission to reduce waste and nourish communities.</p>
 
