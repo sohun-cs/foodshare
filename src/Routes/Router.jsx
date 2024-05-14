@@ -17,11 +17,13 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('https://food-sphere.vercel.app/foods')
             },
             {
                 path: '/available-foods',
-                element: <AvailableFood></AvailableFood>
+                element: <AvailableFood></AvailableFood>,
+                loader: () => fetch('https://food-sphere.vercel.app/foods')
             },
             {
                 path: '/add-food',

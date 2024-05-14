@@ -42,7 +42,7 @@ const AddFood = () => {
         console.log(foods);
         
 
-        fetch('http://localhost:5000/foods', {
+        fetch('https://food-sphere.vercel.app/foods', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
