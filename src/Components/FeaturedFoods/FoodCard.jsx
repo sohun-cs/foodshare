@@ -51,8 +51,8 @@ const FoodCard = ({ loadedFood }) => {
                             </div>
                             <div>
 
-                                <Link to={`/details/${_id}`} className="text-blue-500 font-semibold">
-                                    <button>View Details</button>
+                                <Link to={`/details/${_id}`} className="">
+                                    <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-green-600 px-6 font-medium text-neutral-50"><span className="absolute h-0 w-0 rounded-full bg-emerald-700 transition-all duration-300 group-hover:h-56 group-hover:w-36"></span><span className="relative">View Details</span></button>
                                 </Link>
 
                             </div>

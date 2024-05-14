@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 
-const AvailableFoodCard = ({allFood}) => {
+const AvailableFoodCard = ({ allFood }) => {
 
-    const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name } = allFood;
+    const { food_image, food_name, quantity, location, expired_date, notes, donar_name } = allFood;
 
     return (
         <div className="max-w-sm border border-green-500">
@@ -44,8 +44,8 @@ const AvailableFoodCard = ({allFood}) => {
                         <p>{location}</p>
                     </div>
                     <div>
-                        <Link to={`/details/`} className="text-rose-500 font-semibold">
-                        <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-green-600 px-6 font-medium text-neutral-50"><span className="absolute h-0 w-0 rounded-full bg-blue-500 transition-all duration-300 group-hover:h-56 group-hover:w-36"></span><span className="relative">View Details</span></button>
+                        <Link to={`/details`} className="text-rose-500 font-semibold">
+                            <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-green-600 px-6 font-medium text-neutral-50"><span className="absolute h-0 w-0 rounded-full bg-blue-500 transition-all duration-300 group-hover:h-56 group-hover:w-36"></span><span className="relative">View Details</span></button>
                         </Link>
                     </div>
                 </div>
