@@ -7,6 +7,8 @@ export const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    console.log('User from navbar: ', user);
+
 
     const handleLogout = () => {
         logout()
@@ -54,7 +56,7 @@ export const Navbar = () => {
 
     return (
         <div className="bg-gradient-to-r from-green-50 to-emerald-50 text-black ">
-            <div className="px-4 py-5 h-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+            <div className="px-4 py-5 h-20 mx-auto sm:max-w-xl md:max-w-full xl:max-w-screen-2xl md:px-24 lg:px-8">
                 <div className="relative h-10 flex items-center justify-between">
                     <a
                         href="/" className="inline-flex items-center">
@@ -63,7 +65,7 @@ export const Navbar = () => {
                             FoodSphere
                         </span>
                     </a>
-                    <ul className="items-center hidden lg:text-sm xl:text-base lg:space-x-4 xl:space-x-6 lg:flex ">
+                    <ul className="items-center hidden lg:text-sm xl:text-base lg:space-x-4 xl:space-x-6 xl:flex ">
                         {
                             link
                         }
@@ -85,7 +87,7 @@ export const Navbar = () => {
                                             </div>
 
                                             <Link to='/' onClick={handleLogout} className="mx-2 bg-gradient-to-r from-green-600 to-lime-600 px-8 py-2 text-white font-bold">
-                                            <button>Logout</button>
+                                                <button>Logout</button>
                                             </Link>
 
                                         </div>
@@ -108,7 +110,35 @@ export const Navbar = () => {
 
                         </li>
                     </ul>
-                    <div className="lg:hidden">
+
+                    <div className="xl:hidden flex items-center gap-2">
+                        {
+
+                            user &&
+                            <>
+
+                                <div className="flex-none">
+
+                                    <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                            <div className="w-8 rounded-full">
+                                                <img src={user?.photoURL} alt="" />
+                                            </div>
+                                        </div>
+                                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content text-center bg-base-100 rounded-box w-52">
+                                            <li className="text-sm font-semibold text-green-600 capitalize dark:text-white">{user.displayName}</li>
+                                            {user.email ? <li className="text-xs text-rose-600 dark:text-gray-400"></li> : ''}
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </>
+
+
+
+                        }
                         <button
                             aria-label="Open Menu"
                             title="Open Menu"

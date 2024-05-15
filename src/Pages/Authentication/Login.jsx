@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
 
@@ -11,22 +12,17 @@ const Login = () => {
         document.title = "Login - FoodSphere"
     }, []);
 
-    const { login } = useContext(AuthContext);
+    const { user, login, googleSignIn, githubSignIn } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(true);
 
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [showPassword, setShowPassword] = useState(true);
-
-
     const handleLogin = e => {
         e.preventDefault();
-
         const form = new FormData(e.currentTarget);
-
         const email = form.get('email');
         const password = form.get('password');
-
         e.target.reset();
 
         login(email, password)
@@ -37,7 +33,36 @@ const Login = () => {
             .catch(() => {
                 toast.error("User not found")
             })
+    };
 
+    console.log('User from login: ', user);
+
+    const handleGoogleLogin = () => {
+
+        const provider = new GoogleAuthProvider();
+        googleSignIn(provider)
+            .then(() => {
+                toast.success('User Login Successfully')
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+        console.log(user);
+    }
+
+    const handleGithubLogin = () => {
+
+        const provider = new GithubAuthProvider();
+        githubSignIn(provider)
+            .then(() => {
+                toast.success('User Login Successfully')
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
 
@@ -93,7 +118,7 @@ const Login = () => {
                                         <input
                                             className="w-full bg-indigo-700 font-semibold text-indigo-200 py-3 mt-3 border-2 border-indigo-700 hover:bg-transparent duration-500 hover:border-2 hover:text-indigo-700 hover:border-indigo-700 cursor-pointer"
                                             type="submit"
-                                            
+
                                             value='Login' />
                                     </div>
 
@@ -104,8 +129,8 @@ const Login = () => {
                                     </div>
 
                                     <div className="flex text-3xl justify-center gap-4 pt-4">
-                                        <Link onClick='' to=""><FcGoogle className="hover:scale-110 duration-700 cursor-pointer" /></Link>
-                                        <Link onClick='' to=""><FaGithub className="hover:scale-110 duration-700 cursor-pointer" /></Link>
+                                        <Link onClick={handleGoogleLogin} to=""><FcGoogle className="hover:scale-110 duration-700 cursor-pointer" /></Link>
+                                        <Link onClick={handleGithubLogin} to=""><FaGithub className="hover:scale-110 duration-700 cursor-pointer" /></Link>
                                     </div>
 
                                 </div>

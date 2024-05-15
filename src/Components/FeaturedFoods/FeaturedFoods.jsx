@@ -7,8 +7,10 @@ const FeaturedFoods = () => {
 
     const loadedFoods = useLoaderData();
 
+    loadedFoods.sort((a, b) => parseInt(b.quantity) - parseInt(a.quantity));
 
     console.log(loadedFoods);
+
 
     return (
         <div>
@@ -32,7 +34,7 @@ const FeaturedFoods = () => {
                     }
 
 
-                    
+
 
                     {/* ------------------------------------------------------------------ */}
 
