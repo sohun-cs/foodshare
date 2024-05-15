@@ -17,6 +17,12 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [navigate, user])
+    const from = location.state || '/'
 
     const handleLogin = e => {
         e.preventDefault();
@@ -27,8 +33,8 @@ const Login = () => {
 
         login(email, password)
             .then(() => {
-                toast.success('User Login Successfully')
-                navigate(location?.state ? location.state : '/')
+                toast.success('User Login Successfully');
+                navigate(from, { replace: true });
             })
             .catch(() => {
                 toast.error("User not found")
@@ -43,7 +49,6 @@ const Login = () => {
         googleSignIn(provider)
             .then(() => {
                 toast.success('User Login Successfully')
-                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);

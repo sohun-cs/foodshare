@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 const FoodCard = ({ loadedFood }) => {
+    
 
     const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name } = loadedFood;
 

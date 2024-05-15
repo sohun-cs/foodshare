@@ -61,7 +61,7 @@ const ManageFoodTable = ({ managedFood, manageFoods, setManageFoods }) => {
             <td className="px-6 py-4">
                 <div className="flex justify-between">
 
-                    <Link to={`/edit-food/${_id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                    <Link to={`/edit-food/${_id}`} className="font-bold text-blue-600 dark:text-blue-500 hover:underline">
                         Edit
                     </Link>
 
@@ -70,7 +70,7 @@ const ManageFoodTable = ({ managedFood, manageFoods, setManageFoods }) => {
             <td className="px-6 py-4">
                 <div className="flex justify-between">
 
-                    <Link onClick={() => handleDelete(_id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                    <Link onClick={() => handleDelete(_id)} className="font-bold text-orange-600 dark:text-orange-500 hover:underline">
                         Delete
                     </Link>
 

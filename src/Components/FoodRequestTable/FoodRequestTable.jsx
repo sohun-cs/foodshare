@@ -7,6 +7,9 @@ const FoodRequestTable = ({ requestedFood }) => {
     const { food_name, donar_name, donar_email, donar_image, status } = requestedFood;
 
 
+
+
+
     return (
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
 

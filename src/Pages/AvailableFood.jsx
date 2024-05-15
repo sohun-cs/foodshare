@@ -11,15 +11,14 @@ const AvailableFood = () => {
     const allFoods = useLoaderData();
 
     const [cols, setCols] = useState(true);
-
-    // const handleCols = () => {
-    //     setCols(!cols)
-    //     console.log(cols);
-    // }
+   
 
     const handleThreeCols = () => {
         setCols(true);
     }
+
+
+   
 
     const handleTwoCols = () => {
         setCols(false);
@@ -32,10 +31,6 @@ const AvailableFood = () => {
                 <button onClick={handleCols}>2 Cols</button>
                 <button>3 c0ls</button>
             </div> */}
-
-
-
-
 
             <div className="px-4 py-16 md:px-24 lg:px-8 lg:py-20 mx-auto max-w-xl md:max-w-full lg:max-w-screen-xl flex flex-col items-center justify-center">
 

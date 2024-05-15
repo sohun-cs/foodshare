@@ -15,7 +15,7 @@ const ManageMyFood = () => {
     console.log(managedFoods);
 
     return (
-        <div className="container mx-auto min-h-[calc(100vh-80px-181.09px)] flex flex-col items-center justify-center">
+        <div className="container mx-auto min-h-[calc(100vh-80px-181.09px)] flex flex-col items-center py-10">
 
 
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">

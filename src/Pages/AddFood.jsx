@@ -157,7 +157,7 @@ const AddFood = () => {
                                         <input
                                             className="w-full px-4 py-3 
                                             focus:outline-green-600 mt-3"
-                                            type="datetime-local"
+                                            type="date"
                                             name="expired_date"
                                             placeholder="Enter expire date"
                                             required />

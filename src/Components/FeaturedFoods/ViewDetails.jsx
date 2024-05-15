@@ -12,7 +12,7 @@ const ViewDetails = () => {
         document.title = 'Details - Food Sphere'
     }, []);
 
-    const { loading, setLoading } = useContext(AuthContext)
+    const { user, loading, setLoading } = useContext(AuthContext);
 
     const loadedDetails = useLoaderData();
 
@@ -94,7 +94,7 @@ const ViewDetails = () => {
                             <div className="flex items-center justify-between">
                                 <p>Quantity: {quantity}</p>
                                 <p>Expire Date: {expired_date}</p>
-                                <Link onClick={() => handleRequest(loadedDetails)} to={loading === true ? "" : `/my-requested-foods`} className="">
+                                <Link onClick={() => handleRequest(loadedDetails)} to={loading === true ? "" : `/my-requested-foods`} className={donar_email === user?.email ? 'btn-disabled' : ''}>
                                     <button className="group relative inline-flex h-8 items-center justify-center overflow-hidden rounded-md bg-green-600 px-6 font-medium text-neutral-50"><span className="absolute h-0 w-0 rounded-full bg-emerald-700 transition-all duration-300 group-hover:h-56 group-hover:w-36"></span><span className="relative">Request</span></button>
                                 </Link>
                             </div>

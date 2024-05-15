@@ -1,5 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import FoodCard from "./FoodCard";
+import { motion } from "framer-motion"
+
 
 
 
@@ -42,10 +44,22 @@ const FeaturedFoods = () => {
 
                 <div className="text-center my-16">
 
-                    <Link to='/available-foods'
-                        className="bg-gradient-to-r from-red-500 to-rose-500 px-16 py-4 text-white text-lg font-bold rounded shadow-md hover:bg-gradient-to-r focus:shadow-outline focus:outline-none">
-                        <button>Show All</button>
-                    </Link>
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+
+                        <Link to='/available-foods'
+
+                            className="bg-gradient-to-r from-green-500 to-emerald-500 px-16 py-4 text-white text-lg font-bold rounded shadow-md hover:bg-gradient-to-r focus:shadow-outline focus:outline-none">
+                            <button>Show All</button>
+
+
+                        </Link>
+
+                    </motion.button>
+
+
 
                 </div>
 
