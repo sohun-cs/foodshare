@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const ViewDetails = () => {
@@ -10,11 +12,40 @@ const ViewDetails = () => {
         document.title = 'Details - Food Sphere'
     }, []);
 
+    const { loading, setLoading } = useContext(AuthContext)
+
     const loadedDetails = useLoaderData();
 
-    const { food_image, food_name, quantity, location, expired_date, donar_name, donar_email, donar_image, status } = loadedDetails;
+    const {  food_image, food_name, quantity, location, expired_date, donar_name, donar_email, donar_image, status } = loadedDetails;
 
     console.log(loadedDetails);
+
+    const handleRequest = data => {
+
+        setLoading(true);
+
+        fetch('https://food-sphere.vercel.app/requests', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success"
+                    });
+
+                    setLoading(false)
+                }
+            })
+    }
 
 
 
@@ -63,7 +94,7 @@ const ViewDetails = () => {
                             <div className="flex items-center justify-between">
                                 <p>Quantity: {quantity}</p>
                                 <p>Expire Date: {expired_date}</p>
-                                <Link to={`/details`} className="">
+                                <Link onClick={() => handleRequest(loadedDetails)} to={loading === true ? "" : `/my-requested-foods`} className="">
                                     <button className="group relative inline-flex h-8 items-center justify-center overflow-hidden rounded-md bg-green-600 px-6 font-medium text-neutral-50"><span className="absolute h-0 w-0 rounded-full bg-emerald-700 transition-all duration-300 group-hover:h-56 group-hover:w-36"></span><span className="relative">Request</span></button>
                                 </Link>
                             </div>

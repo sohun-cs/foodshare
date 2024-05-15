@@ -44,7 +44,7 @@ export const Navbar = () => {
         <li className="font-semibold">
             {
                 user &&
-                <NavLink to="/my-food-request" className={({ isActive }) => isActive ? 'transition-colors duration-200 text-gray-950 border-b border-gray-950 pb-1' : 'transition-colors duration-200 text-gray-700'} >
+                <NavLink to="/my-requested-foods" className={({ isActive }) => isActive ? 'transition-colors duration-200 text-gray-950 border-b border-gray-950 pb-1' : 'transition-colors duration-200 text-gray-700'} >
                     My Food Request
                 </NavLink>
             }

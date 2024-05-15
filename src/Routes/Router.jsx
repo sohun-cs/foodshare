@@ -38,8 +38,9 @@ const router = createBrowserRouter([
                 loader: () => fetch(`https://food-sphere.vercel.app/foods`)
             },
             {
-                path: '/my-food-request',
-                element: <MyFoodRequest></MyFoodRequest>
+                path: '/my-requested-foods',
+                element: <MyFoodRequest></MyFoodRequest>,
+                loader: () => fetch(`https://food-sphere.vercel.app/requests`)
             },
             {
                 path: '/login',
