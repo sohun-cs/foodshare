@@ -78,7 +78,7 @@ export const Navbar = () => {
 
                                         <div className="flex items-center gap-x-2">
                                             <img className="w-10 h-10 rounded-full ring-2 ring-green-300 dark:ring-gray-500"
-                                                src={user?.photoURL} alt="" />
+                                                src={user.photoURL} alt="" />
 
                                             <div className="border-r-2 pr-3 border-rose-500">
                                                 <h1 className="text-sm font-semibold text-green-600 capitalize dark:text-white">{user.displayName}</h1>

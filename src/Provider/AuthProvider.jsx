@@ -17,9 +17,22 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     };
 
+    const login = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    };
+
+
+    const updateUserProfile = (name, photoURL) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL
+        })
+    };
+
     const googleSignIn = (provider) => {
         setLoading(true);
-        return signInWithPopup(auth, provider);
+        return signInWithPopup(auth, provider)
     };
 
     const githubSignIn = provider => {
@@ -27,22 +40,11 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     };
 
-    const login = (email, password) => {
-        setLoading(loading);
-        return signInWithEmailAndPassword(auth, email, password);
-    };
 
     const logout = () => {
         setLoading(loading);
         return signOut(auth);
     };
-
-    const updateUserProfile = (name, photoURL) => {
-        return updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: photoURL
-        })
-    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {

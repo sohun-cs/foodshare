@@ -35,7 +35,7 @@ const Login = () => {
             })
     };
 
-    console.log('User from login: ', user);
+
 
     const handleGoogleLogin = () => {
 
@@ -43,7 +43,7 @@ const Login = () => {
         googleSignIn(provider)
             .then(() => {
                 toast.success('User Login Successfully')
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -59,11 +59,14 @@ const Login = () => {
             .then(() => {
                 toast.success('User Login Successfully')
                 navigate(location?.state ? location.state : '/')
+
             })
             .catch(error => {
                 console.error(error);
             })
     }
+
+    console.log('google use: ', user);
 
 
     return (
