@@ -35,11 +35,6 @@ const FeaturedFoods = () => {
                         </FoodCard>)
                     }
 
-
-
-
-                    {/* ------------------------------------------------------------------ */}
-
                 </div>
 
                 <div className="text-center my-16">
