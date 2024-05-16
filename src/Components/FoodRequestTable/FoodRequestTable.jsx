@@ -1,13 +1,18 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 
 const FoodRequestTable = ({ requestedFood }) => {
 
-    const { food_name, donar_name, donar_email, donar_image, status } = requestedFood;
+    const { donar_image, quantity, location, expired_date, donar_name, donar_email } = requestedFood;
 
+    const {user} = useContext(AuthContext)
 
-
+    if (donar_email === user.email) {
+        return null; // Do not render the table row if the user's email does not match
+    }
 
 
     return (
@@ -21,11 +26,21 @@ const FoodRequestTable = ({ requestedFood }) => {
                 </div>
             </th>
             <td className="px-6 py-4">
-                {food_name}
+                {location}
             </td>
             <td className="px-6 py-4">
                 <div className="flex items-center">
-                    {status}
+                    {expired_date}
+                </div>
+            </td>
+            <td className="px-6 py-4">
+                <div className="flex items-center">
+                    {new Date().toISOString().split('T')[0]}
+                </div>
+            </td>
+            <td className="px-6 py-4">
+                <div className="flex items-center">
+                    {quantity}
                 </div>
             </td>
             <td className="px-6 py-4">

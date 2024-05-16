@@ -1,13 +1,14 @@
 import { useContext, useEffect } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const EditFood = () => {
 
+    ScrollRestoration('/');
     useEffect(() => {
-        document.title = 'Edit Food - FoodSphere';
+        document.title = 'FoodSphere | Edit Food'
     }, []);
 
     const { user } = useContext(AuthContext);
@@ -156,7 +157,7 @@ const EditFood = () => {
                                         <input
                                             className="w-full px-4 py-3 
                                             focus:outline-green-600 mt-3"
-                                            type="datetime-local"
+                                            type="date"
                                             name="expired_date"
                                             defaultValue={expired_date}
                                             placeholder="Enter expire date"
@@ -233,7 +234,7 @@ const EditFood = () => {
                                     </div>
 
                                     <div>
-                                        <label className="text-base font-semibold">Rating</label><br />
+                                        <label className="text-base font-semibold">Status</label><br />
 
                                         <select
                                             className="w-full px-4 py-3 focus:outline-green-600 mt-3"

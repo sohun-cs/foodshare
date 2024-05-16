@@ -1,21 +1,22 @@
+import { ScrollRestoration } from "react-router-dom";
 import FoodRequestTable from "../Components/FoodRequestTable/FoodRequestTable";
 import { useEffect, useState } from "react";
 
 
 const MyFoodRequest = () => {
 
+    ScrollRestoration('/');
+    useEffect(() => {
+        document.title = 'FoodSphere | My Request Food'
+    }, []);
+
     const [foodRequests, setFoodRequests] = useState([]);
 
-
-    useEffect( () => {
+    useEffect(() => {
         fetch(`https://food-sphere.vercel.app/requests`)
-        .then(res => res.json())
-        .then(data => setFoodRequests(data))
-    },[]);
-
-
-
-
+            .then(res => res.json())
+            .then(data => setFoodRequests(data))
+    }, []);
 
     return (
         <div className="container mx-auto min-h-[calc(100vh-80px-181.09px)] flex flex-col items-center py-10">
@@ -31,10 +32,16 @@ const MyFoodRequest = () => {
                                     Donator Info
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Food Name
+                                    Pickup Location
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Status
+                                    Expire Date
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Request Date
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Amount
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Evaluation

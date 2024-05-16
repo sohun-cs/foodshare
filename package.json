@@ -26,6 +26,7 @@
     "react-toastify": "^10.0.5",
     "react-tooltip": "^5.26.4",
     "react-type-animation": "^3.2.0",
+    "reshaped": "^2.11.9",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.11",
     "sweetalert2": "^11.11.0"

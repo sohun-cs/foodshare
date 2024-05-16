@@ -8,7 +8,7 @@ const AvailableFoodCard = ({ allFood }) => {
     const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_image } = allFood;
 
     return (
-        <div className="max-w-sm border border-green-500">
+        <div className="max-w-md border border-green-500">
             <div className="overflow-hidden h-60">
                 <img src={food_image}
                     className="hover:scale-110 duration-500" alt="" />
@@ -28,7 +28,7 @@ const AvailableFoodCard = ({ allFood }) => {
                 <div className="px-4 py-2">
                     <div className="flex items-center gap-2">
                         <div>
-                            <img className="w-9  rounded-full" src={donar_image} alt="" />
+                            <img className="w-9 h-9 rounded-full" src={donar_image} alt="" />
                         </div>
                         <div className="">
                             <p className="font-semibold text-sm">{donar_name}</p>

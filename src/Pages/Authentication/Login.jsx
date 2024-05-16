@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useLocation, useNavigate, } from "react-router-dom";
+import { Link, ScrollRestoration, useLocation, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
 
+    ScrollRestoration('/');
     useEffect(() => {
-        document.title = "Login - FoodSphere"
+        document.title = 'FoodSphere | Login'
     }, []);
 
     const { user, login, googleSignIn, githubSignIn } = useContext(AuthContext);
@@ -17,12 +18,12 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    useEffect(() => {
-        if (user) {
-            navigate('/')
-        }
-    }, [navigate, user])
-    const from = location.state || '/'
+    // useEffect(() => {
+    //     if (user) {
+    //         navigate('/')
+    //     }
+    // }, [navigate, user])
+    // const from = location.state || '/'
 
     const handleLogin = e => {
         e.preventDefault();
@@ -34,7 +35,7 @@ const Login = () => {
         login(email, password)
             .then(() => {
                 toast.success('User Login Successfully');
-                navigate(from, { replace: true });
+                navigate(location?.state ? location.state : '/');
             })
             .catch(() => {
                 toast.error("User not found")
@@ -48,7 +49,9 @@ const Login = () => {
         const provider = new GoogleAuthProvider();
         googleSignIn(provider)
             .then(() => {
-                toast.success('User Login Successfully')
+                toast.success('User Login Successfully');
+                
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
@@ -63,7 +66,7 @@ const Login = () => {
         githubSignIn(provider)
             .then(() => {
                 toast.success('User Login Successfully')
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/');
 
             })
             .catch(error => {
@@ -77,7 +80,7 @@ const Login = () => {
     return (
         <div className={` bg-no-repeat bg-cover `}>
             <div className="max-w-[1536px] mx-auto min-h-[calc(100vh-112px)] flex justify-center items-center">
-                <div className="font-rubik bg-indigo-100 bg-opacity-40 p-10 lg:p-20 ">
+                <div className="font-rubik bg-green-300 bg-opacity-40 p-10 lg:p-20 ">
 
                     <form onSubmit={handleLogin}>
 
@@ -89,7 +92,7 @@ const Login = () => {
 
                             <div className="max-w-full max-h-full flex flex-col items-center justify-center">
                                 <h1
-                                    className="text-indigo-800 font-semibold text-center text-2xl my-4">
+                                    className="text-emerald-800 font-semibold text-center text-2xl my-4">
                                     Login Now!
                                 </h1>
 
@@ -98,7 +101,7 @@ const Login = () => {
 
                                     <div>
                                         <input
-                                            className=" font-medium border-b-2 border-indigo-300 py-3 px-4 my-3 focus:outline-none focus:border-b-2 placeholder-indigo-300 focus:border-indigo-700 w-full"
+                                            className=" font-medium border-b-2 border-emerald-300 py-3 px-4 my-3 focus:outline-none focus:border-b-2 placeholder-emerald-300 focus:border-emerald-700 w-full"
                                             name="email"
                                             type="email"
                                             placeholder="Email"
@@ -107,7 +110,7 @@ const Login = () => {
 
                                     <div className="relative">
                                         <input
-                                            className=" font-medium border-b-2 border-indigo-300 py-3 px-4 my-3 focus:outline-none focus:border-b-2 placeholder-indigo-300 focus:border-indigo-700 w-full"
+                                            className=" font-medium border-b-2 border-emerald-300 py-3 px-4 my-3 focus:outline-none focus:border-b-2 placeholder-emerald-300 focus:border-emerald-700 w-full"
                                             type={showPassword ? 'password' : 'text'}
                                             name="password"
                                             placeholder="Password"
@@ -124,7 +127,7 @@ const Login = () => {
 
                                     <div>
                                         <input
-                                            className="w-full bg-indigo-700 font-semibold text-indigo-200 py-3 mt-3 border-2 border-indigo-700 hover:bg-transparent duration-500 hover:border-2 hover:text-indigo-700 hover:border-indigo-700 cursor-pointer"
+                                            className="w-full bg-emerald-700 font-semibold text-emerald-200 py-3 mt-3 border-2 border-emerald-700 hover:bg-transparent duration-500 hover:border-2 hover:text-emerald-700 hover:border-emerald-700 cursor-pointer"
                                             type="submit"
 
                                             value='Login' />

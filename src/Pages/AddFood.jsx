@@ -8,15 +8,12 @@ import Swal from "sweetalert2";
 const AddFood = () => {
 
     ScrollRestoration('/');
-
+    useEffect(() => {
+        document.title = 'FoodSphere | Add Food Item'
+    }, []);
 
 
     const { user, loading, setLoading } = useContext(AuthContext);
-
-    useEffect(() => {
-        document.title = 'Add Food Item - FoodSphere'
-    }, []);
-
 
     if (loading) return <div className="min-h-[calc(100vh-80px-181.09px)] flex items-center justify-center"><Spinner className="h-16 w-16 text-gray-900/50" /></div>
 
@@ -36,11 +33,9 @@ const AddFood = () => {
         const donar_image = form.donar_image.value;
         const status = form.status.value;
 
-
-        const foods = { food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_email, donar_image, status }
+        const foods = { food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_email, donar_image, status };
 
         console.log(foods);
-        
 
         fetch('https://food-sphere.vercel.app/foods', {
             method: 'POST',

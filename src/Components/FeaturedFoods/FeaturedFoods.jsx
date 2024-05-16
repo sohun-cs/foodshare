@@ -17,8 +17,8 @@ const FeaturedFoods = () => {
     return (
         <div>
 
-            <div>
-                <h1>Featured Food</h1>
+            <div className="xl:mt-32">
+                <h1 className="text-green-600 text-5xl font-bold text-center">Featured Food</h1>
             </div>
 
 
@@ -31,7 +31,6 @@ const FeaturedFoods = () => {
                         loadedFoods.slice(0, 6).map(loadedFood => <FoodCard
                             key={loadedFood._id}
                             loadedFood={loadedFood}>
-
                         </FoodCard>)
                     }
 

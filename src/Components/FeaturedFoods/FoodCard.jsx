@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const FoodCard = ({ loadedFood }) => {
     
 
-    const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name } = loadedFood;
+    const { _id, food_image, food_name, quantity, location, expired_date, notes, donar_name, donar_image } = loadedFood;
 
 
     return (
@@ -21,7 +21,7 @@ const FoodCard = ({ loadedFood }) => {
                         <div className="space-y-2">
                             <div className="absolute -top-2/3 lg:right-28 xl:right-40 rounded-full border-4 border-green-500 overflow-hidden cursor-pointer">
                                 <img
-                                    className="w-16 mx-auto hover:scale-125 duration-700" src="https://i.ibb.co/RYZpjHj/pic.jpg" alt="" />
+                                    className="w-16 h-16 mx-auto hover:scale-125 duration-700" src={donar_image} alt="" />
                             </div>
                             <div className="lg:text-center relative top-7">
                                 <p className="font-semibold text-lg">{donar_name}</p>

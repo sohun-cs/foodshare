@@ -1,9 +1,14 @@
-import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { ScrollRestoration, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import ManageFoodTable from "../Components/ManageFoodTable/ManageFoodTable";
 
 const ManageMyFood = () => {
+
+    ScrollRestoration('/');
+    useEffect(() => {
+        document.title = 'FoodSphere | Manage Food'
+    }, []);
 
     const { user } = useContext(AuthContext);
     const loadedMyFoods = useLoaderData();

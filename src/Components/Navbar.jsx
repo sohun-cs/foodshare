@@ -72,10 +72,8 @@ export const Navbar = () => {
 
                         <li>
                             {
-
                                 user ?
                                     <>
-
                                         <div className="flex items-center gap-x-2">
                                             <img className="w-10 h-10 rounded-full ring-2 ring-green-300 dark:ring-gray-500"
                                                 src={user.photoURL} alt="" />
@@ -91,10 +89,7 @@ export const Navbar = () => {
                                             </Link>
 
                                         </div>
-
-
                                     </>
-
                                     :
                                     <>
                                         <Link
@@ -104,21 +99,15 @@ export const Navbar = () => {
 
                                         </Link>
                                     </>
-
                             }
-
-
                         </li>
                     </ul>
 
                     <div className="xl:hidden flex items-center gap-2">
                         {
-
                             user &&
                             <>
-
                                 <div className="flex-none">
-
                                     <div className="dropdown dropdown-end">
                                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                             <div className="w-8 rounded-full">
@@ -128,17 +117,12 @@ export const Navbar = () => {
                                         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content text-center bg-base-100 rounded-box w-52">
                                             <li className="text-sm font-semibold text-green-600 capitalize dark:text-white">{user.displayName}</li>
                                             {user.email ? <li className="text-xs text-rose-600 dark:text-gray-400"></li> : ''}
-
                                         </ul>
                                     </div>
                                 </div>
-
-
                             </>
-
-
-
                         }
+
                         <button
                             aria-label="Open Menu"
                             title="Open Menu"
@@ -226,7 +210,7 @@ export const Navbar = () => {
                                                 </Link>
                                             </li>
                                             <li className="font-semibold">
-                                                <Link to="/my-food-request"
+                                                <Link to="/my-requested-foods"
                                                     onClick={() => setIsMenuOpen(false)}
                                                     className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" >
                                                     My Food Request
@@ -242,7 +226,6 @@ export const Navbar = () => {
                                                         <Link to="/login" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-gradient-to-r from-green-600 to-lime-600 text-white">
                                                             Login
                                                         </Link>
-
                                                 }
                                             </li>
 
