@@ -1,4 +1,4 @@
-Live Link: https://splendorous-stroopwafel-f8d6e2.netlify.app/
+# Live Link: https://splendorous-stroopwafel-f8d6e2.netlify.app/
 
 ### Concept:
 This project is about a food sharing website to reduce food waste. A valid user can share food and its location, and also request food from other sharers. The platform aims to connect individuals and communities to minimize food waste. Users can also rate and review food sharers to ensure quality and reliability.
